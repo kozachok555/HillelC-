@@ -18,3 +18,5 @@ Release/
 *.pdb
 *.dll
 *.lib
+
+*.json
