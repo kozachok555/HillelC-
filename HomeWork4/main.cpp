@@ -1,11 +1,41 @@
 #include <iostream>
 
+int calc(char op, int firstNumber, int secondNumber) {
+    if (op == '+') {
+        return firstNumber + secondNumber;
+    }
+    else if (op == '-') {
+        return firstNumber - secondNumber;
+    }
+    else if (op == '*') {
+        return firstNumber * secondNumber;
+    }
+    else if (op == '/') {
+        if (secondNumber != 0) {
+            return firstNumber / secondNumber;
+        }
+        else {
+            std::cout << "Cant devide by zero." << std::endl;
+        }
+    }
+    else {
+        std::cerr << "Invalid operator." << std::endl;
+    }
+    return 0;
+}
+
 int main() {
-	int signedVar = -2;
-	long int unsignedVar = -4294967294;
+    int firstNumber, secondNumber;
+    char op;
+    std::cout << "Enter first number: ";
+    std::cin >> firstNumber;
+    std::cout << "Enter operator (+, -, *, /): ";
+    std::cin >> op;
+    std::cout << "Enter second number: ";
+    std::cin >> secondNumber;
 
-	unsigned long int result = signedVar + unsignedVar;
+    int result = calc(op, firstNumber, secondNumber);
+    std::cout << "Result: " << result << std::endl;
 
-	std::cout << "Result of signedVar + max unsignedVar: " << result << std::endl;
-	return 0;
+    return 0;
 }
