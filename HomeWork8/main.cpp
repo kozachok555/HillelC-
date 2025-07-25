@@ -1,17 +1,17 @@
 #include <iostream>
 constexpr int redColor = 0b1;
 constexpr int blueColor = 0b10;
-constexpr int greenColor = 0b1000;
-constexpr int yellowColor = 0b100000;
-constexpr int purpleColor = 0b1000000;
-constexpr int lightBlueColor = 0b10000000;
-constexpr int whiteColor = 0b100000000;
-constexpr int blackColor = 0b1000000000;
-constexpr int orangeColor = 0b10000000000;
-constexpr int beigeColor = 0b100000000000;
-constexpr int pinkColor = 0b1000000000000;
-constexpr int ligthGreenColor = 0b10000000000000;
-constexpr int greyColor = 0b100000000000000;
+constexpr int greenColor = 0b100;
+constexpr int yellowColor = 0b1000;
+constexpr int purpleColor = 0b10000;
+constexpr int lightBlueColor = 0b100000;
+constexpr int whiteColor = 0b1000000;
+constexpr int blackColor = 0b10000000;
+constexpr int orangeColor = 0b100000000;
+constexpr int beigeColor = 0b1000000000;
+constexpr int pinkColor = 0b10000000000;
+constexpr int ligthGreenColor = 0b100000000000;
+constexpr int greyColor = 0b1000000000000;
 int lovelyColor = 0;
 
 void showMenuOptions()
@@ -32,11 +32,11 @@ void showMenuOptions()
 }
 void showLiklyColors()
 {
-    if (lovelyColor&redColor)
+    if (lovelyColor & redColor)
     {
         std::cout << "0. Полюбяєте червоний" << std::endl;
     }
-    if (lovelyColor&blueColor)
+    if (lovelyColor & blueColor)
     {
         std::cout << "1. Полюбляєте синій" << std::endl;
     }
@@ -85,103 +85,10 @@ void showLiklyColors()
         std::cout << "12. Полюбляєте сірий" << std::endl;
     }
 }
-void removeColor(int option)
-{
-    switch (option)
-    {
-    case 0:
-        lovelyColor ^= redColor;
-        break;
-    case 1:
-        lovelyColor ^= blueColor;
-        break;
-    case 2:
-        lovelyColor ^= greenColor;
-        break;
-    case 3:
-        lovelyColor ^= yellowColor;
-        break;
-    case 4:
-        lovelyColor ^= purpleColor;
-        break;
-    case 5:
-        lovelyColor ^= lightBlueColor;
-        break;
-    case 6:
-        lovelyColor ^= whiteColor;
-        break;
-    case 7:
-        lovelyColor ^= blackColor;
-        break;
-    case 8:
-        lovelyColor ^= orangeColor;
-        break;
-    case 9:
-        lovelyColor ^= beigeColor;
-        break;
-    case 10:
-        lovelyColor ^= pinkColor;
-        break;
-    case 11:
-        lovelyColor ^= ligthGreenColor;
-        break;
-    case 12:
-        lovelyColor ^= greyColor;
-        break;
-    default:
-        std::cout << "Incorrect option" << std::endl;
-    }
-}
-void addColor(int option)
-{
-    switch (option)
-    {
-    case 0:
-        lovelyColor |= redColor;
-        break;
-    case 1:
-        lovelyColor |= blueColor;
-        break;
-    case 2:
-        lovelyColor |= greenColor;
-        break;
-    case 3:
-        lovelyColor |= yellowColor;
-        break;
-    case 4:
-        lovelyColor |= purpleColor;
-        break;
-    case 5:
-        lovelyColor |= lightBlueColor;
-        break;
-    case 6:
-        lovelyColor |= whiteColor;
-        break;
-    case 7:
-        lovelyColor |= blackColor;
-        break;
-    case 8:
-        lovelyColor |= orangeColor;
-        break;
-    case 9:
-        lovelyColor |= beigeColor;
-        break;
-    case 10:
-        lovelyColor |= pinkColor;
-        break;
-    case 11:
-        lovelyColor |= ligthGreenColor;
-        break;
-    case 12:
-        lovelyColor |= greyColor;
-        break;
-    default:
-        std::cout << "Incorrect option" << std::endl;
-    }
-}
 
 int main()
 {
+    int choosenNumber;
     while (true)
     {
         std::cout << "Choose the option" << std::endl
@@ -189,7 +96,6 @@ int main()
                   << "2. Remove favorite" << std::endl
                   << "3. Show favorites" << std::endl
                   << "4. Exit" << std::endl;
-        int choosenNumber;
         std::cin >> choosenNumber;
         if (choosenNumber > 0 && choosenNumber < 5)
         {
@@ -199,13 +105,13 @@ int main()
                 int optionAdd;
                 showMenuOptions();
                 std::cin >> optionAdd;
-                addColor(optionAdd);
+                lovelyColor |= 1 << optionAdd;
                 break;
             case 2:
                 int optionRemove;
                 showMenuOptions();
                 std::cin >> optionRemove;
-                removeColor(optionRemove);
+                lovelyColor ^= 1 << optionRemove;
                 break;
             case 3:
                 showLiklyColors();
