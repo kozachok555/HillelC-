@@ -1,6 +1,12 @@
 #include <iostream>
 class Calculator {
 public:
+    void setResult(int value) {
+        result = value;
+	};
+    int getResult() const {
+        return result;
+    };
     int calculate(char op, int firstNumber, int secondNumber) {
         if (op == '+') {
             return firstNumber + secondNumber;
@@ -24,17 +30,66 @@ public:
             std::cerr << "Invalid operator." << std::endl;
         }
         return 0;
-    }
+    };
     int calculate(const char* op, const int* firstNumber, const int* secondNumber) {
         if (op && firstNumber && secondNumber)
             return calculate(*op, *firstNumber, *secondNumber);
 
-    }
+    };
     int& processFirstBy(const char op, int& firstNumber, const int secondNumber)
     {
         firstNumber = calculate(op, firstNumber, secondNumber);
         return firstNumber;
-    }
+    };
+    Calculator& operator+(int value) {
+		this->result += value;
+    };
+    Calculator& operator-(int value) {
+        this->result -= value;
+    };
+    Calculator& operator/(int value) {
+        if (value != 0) {
+            this->result /= value;
+        }
+        else {
+            std::cout << "You cannot divide by 0";
+		}
+    };
+    Calculator& operator*(int value) {
+		this->result *= value;
+    };
+
+    Calculator& calculate(const char& op, const int& value)
+    {
+        if (op == '+') {
+			int temp = result + value;
+			setResult(temp);
+        }
+        else if (op == '-') {
+            int temp = result - value;
+            setResult(temp);
+        }
+        else if (op == '*') {
+            int temp = result * value;
+            setResult(temp);
+        }
+        else if (op == '/') {
+            if (value != 0) {
+                int temp = result / value;
+				setResult(temp);
+            }
+            else {
+                std::cout << "You cannot divide by 0";
+            }
+        }
+        else {
+            std::cerr << "Invalid operator." << std::endl;
+        }
+        return *this;
+    };
+
+private:
+	int result = 0;
 };
 
 int main() {
