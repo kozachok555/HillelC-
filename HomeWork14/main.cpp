@@ -1,43 +1,104 @@
 #include <iostream>
 
-class MyVector {
+class MyVector
+{
 public:
-	int& operator[](const unsigned index) {
-		return data[index];
+	MyVector(MyVector &&) = delete;
+	MyVector &operator-(MyVector &&) = delete;
+	int &operator[](const unsigned index)
+	{
+		return data_[index];
 	};
 
-	MyVector(const MyVector&) = delete;
-	MyVector operator=(const MyVector&) = delete;
+	MyVector(const MyVector &other)
+	{
+		capacity_ = other.capacity_;
+		size_ = other.size_;
+		data_ = other.data_;
 
-	MyVector(const unsigned size, const int valueByDefault = 0) {
-		m_size = size;
-		if (size > 0) {
-			data = new int[size];
+		if (!other.capacity_)
+		{
+			return;
+		}
+		data_ = new int[other.capacity_];
+		capacity_ = other.capacity_;
+		size_ = other.size_;
+		for (size_t i = 0; i < size_; i++)
+		{
+			data_[i] = other.data_[i];
+		};
+	};
+	MyVector &operator=(const MyVector &other)
+	{
+		if (this == &other)
+		{
+			return;
+		};
+		if (data_)
+		{
+			delete data_;
+			data_ = nullptr;
+		};
+		capacity_ = other.capacity_;
+		size_ = other.size_;
+		if (!other.capacity_)
+		{
+			return;
+		};
+
+		int *data_ = new int[other.capacity_];
+		for (size_t i = 0; i < size_; ++i)
+		{
+			data_[i] = other.data_[i];
+		};
+	};
+
+	MyVector(const unsigned size, const int valueByDefault = 0)
+	{
+		size_ = size;
+		capacity_ = size * 2;
+		if (size > 0)
+		{
+			data_ = new int[size];
 		}
 	};
-	~MyVector() {
-		if (data != nullptr) {
-			delete[] data;
+	~MyVector()
+	{
+		if (data_ != nullptr)
+		{
+			delete[] data_;
 		}
 	};
-	void push_back(const unsigned size, const int newValue) {
-		int* copy = new int[size + 1];
-		for (unsigned i = 0; i < size; i++) {
-			copy[i] = data[i];
+	void push_back(const int newValue)
+	{
+		if (capacity_ > size_)
+		{
+			data_[size_] = newValue;
+			++size_;
+			return;
 		}
-		copy[size] = newValue;
-		m_size = size + 1;
 
-		delete[] data;
-		data = copy;
+		capacity_ = size_ * 2;
+		int *copy = new int[capacity_];
+		for (size_t i = 0; i < size_; ++i)
+		{
+			copy[i] = data_[i];
+		};
+		copy[size_] = newValue;
+		++size_;
+
+		delete[] data_;
+		data_ = copy;
 	};
 
 private:
-	unsigned m_size = 0;
-	int* data = nullptr;
+	unsigned size_ = 0;
+	int *data_ = nullptr;
+	int capacity_ = 0;
 };
-int main() {
+int main()
+{
 	MyVector vec(5);
-	vec.push_back(5, 10);
+	vec.push_back(10);
 	std::cout << vec[5] << std::endl;
 };
