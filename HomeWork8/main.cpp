@@ -32,7 +32,7 @@ public:
         }
         return m_instance;
     }
-    void addColor(const int color) { 
+    void addColor(const int color) {
         lovelyColor |= 1 << color;
     }
     void removeColor(const int color) {
@@ -41,10 +41,10 @@ public:
     bool isFavoriteColor(const int color) {
 
         if (lovelyColor & 1 << color) {
-			return true;
+            return true;
         }
         else {
-			return false;
+            return false;
         }
 
     }
@@ -130,11 +130,11 @@ int main()
     while (true)
     {
         std::cout << "Choose the option" << std::endl
-                  << "1. Add favorite colour" << std::endl
-                  << "2. Remove favorite" << std::endl
-                  << "3. Show favorites" << std::endl
-                  << "4. Check the color" << std::endl
-                  << "5. Exit" << std::endl;
+            << "1. Add favorite colour" << std::endl
+            << "2. Remove favorite" << std::endl
+            << "3. Show favorites" << std::endl
+            << "4. Check the color" << std::endl
+            << "5. Exit" << std::endl;
         std::cin >> choosenNumber;
         if (choosenNumber > 0 && choosenNumber < 6)
         {
@@ -142,9 +142,9 @@ int main()
             {
             case 1:
                 int optionAdd;
-				ColorsSingleton::instance()->showMenuOptions();
+                ColorsSingleton::instance()->showMenuOptions();
                 std::cin >> optionAdd;
-				ColorsSingleton::instance()->addColor(optionAdd);
+                ColorsSingleton::instance()->addColor(optionAdd);
                 break;
             case 2:
                 int optionRemove;
@@ -153,12 +153,12 @@ int main()
                 ColorsSingleton::instance()->removeColor(optionRemove);
                 break;
             case 3:
-				ColorsSingleton::instance()->showLiklyColors();
+                ColorsSingleton::instance()->showLiklyColors();
                 break;
-			case 4:
+            case 4:
                 int optionCheck;
                 ColorsSingleton::instance()->showMenuOptions();
-				std::cin >> optionCheck;
+                std::cin >> optionCheck;
                 if (ColorsSingleton::instance()->isFavoriteColor(optionCheck))
                 {
                     std::cout << "You like this color" << std::endl;
@@ -167,7 +167,7 @@ int main()
                 {
                     std::cout << "You don't like this color" << std::endl;
                 }
-				break;
+                break;
             case 5:
                 return 0;
             default:

@@ -10,4 +10,4 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-add_executable(Calculator main.cpp)
+add_executable(Calculator main.cpp Header.h Calculator.cpp)
