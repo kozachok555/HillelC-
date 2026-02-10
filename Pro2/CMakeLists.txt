@@ -10,4 +10,9 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-add_executable(Pro2 main.cpp)
+add_executable(Pro2
+    main.cpp
+    SafeQueue.cpp
+    Worker.cpp
+    SleepManager.cpp
+)
