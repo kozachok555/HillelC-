@@ -9,7 +9,7 @@ struct Logger;
 
 class SleepManager {
 public:
-    SleepManager(std::vector<std::unique_ptr<Worker>>* workers, Logger* logger);
+    SleepManager(std::vector<std::unique_ptr<Worker>>* workers, Logger* logger, int nWorkers);
 
     void onSleep(int workerId);
     void wakeFirst();

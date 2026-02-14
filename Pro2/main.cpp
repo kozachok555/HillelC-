@@ -12,6 +12,7 @@
 
 std::vector<int> generatorNumbers(int N) {
 	std::vector<int> numbers;
+
 	std::srand(std::time(0));
 	int max = 100;
 	int min = -100;
@@ -42,7 +43,13 @@ void dispatcher(SafeQueue& qNumbers,
 
 }
 void sender(const std::vector<int>& numbers, SafeQueue& q) {
-	for (int x : numbers) q.push(x);
+	for (int x : numbers) {
+		q.push(x);
+		if (x == 0 || x == 21) {
+			std::this_thread::sleep_for(std::chrono::milliseconds(200));
+			std::cout << "Sent control value: " << x << "\n";
+		}
+	}
 	q.close();
 }
 
@@ -62,7 +69,7 @@ int main() {
 	workers.reserve(gWorkers);
 
 
-    SleepManager sm(&workers, &logger);
+	SleepManager sm(&workers, &logger, gWorkers);
 
 	for (int i = 0; i < gWorkers; ++i) {
 		workers.emplace_back(std::make_unique<Worker>(i, &sm, &logger));

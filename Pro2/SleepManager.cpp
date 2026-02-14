@@ -2,8 +2,8 @@
 #include "Worker.h"
 #include "Logger.h"
 
-SleepManager::SleepManager(std::vector<std::unique_ptr<Worker>>* workers, Logger* logger)
-    : workers_(workers), logger_(logger), inFifo_(workers->size(), false) {
+SleepManager::SleepManager(std::vector<std::unique_ptr<Worker>>* workers, Logger* logger, int nWorkers)
+    : workers_(workers), logger_(logger), inFifo_(nWorkers, false) {
 }
 
 void SleepManager::onSleep(int workerId) {
