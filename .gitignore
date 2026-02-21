@@ -1,22 +1,22 @@
-# .gitignore
+# # .gitignore
 
-# Visual Studio
-.vs/
-*.vcxproj.user
-*.suo
-*.user
-*.cache
+# # Visual Studio
+# .vs/
+# *.vcxproj.user
+# *.suo
+# *.user
+# *.cache
 
-# Build directories
-build/
-Debug/
-Release/
+# # Build directories
+# build/
+# Debug/
+# Release/
 
-# Binary files
-*.exe
-*.obj
-*.pdb
-*.dll
-*.lib
+# # Binary files
+# *.exe
+# *.obj
+# *.pdb
+# *.dll
+# *.lib
 
-*.json
+# *.json

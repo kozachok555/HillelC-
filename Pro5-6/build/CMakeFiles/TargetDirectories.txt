@@ -1,0 +1,6 @@
+C:/Users/PC/Documents/C++Education/HillelC-/Pro5-6/build/CMakeFiles/mymath_static.dir
+C:/Users/PC/Documents/C++Education/HillelC-/Pro5-6/build/CMakeFiles/mymath_shared.dir
+C:/Users/PC/Documents/C++Education/HillelC-/Pro5-6/build/CMakeFiles/app_static.dir
+C:/Users/PC/Documents/C++Education/HillelC-/Pro5-6/build/CMakeFiles/app_shared.dir
+C:/Users/PC/Documents/C++Education/HillelC-/Pro5-6/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/PC/Documents/C++Education/HillelC-/Pro5-6/build/CMakeFiles/ZERO_CHECK.dir

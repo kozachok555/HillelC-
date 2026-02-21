@@ -1,0 +1,9 @@
+EXPORTS 
+	add
+	mul
+	mydiv
+	myfactorial
+	mylog
+	mypow
+	mysqrt
+	sub

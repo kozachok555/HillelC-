@@ -1,0 +1,10 @@
+^C:\USERS\PC\DOCUMENTS\C++EDUCATION\HILLELC-\PRO2\BUILD\CMAKEFILES\7CF8EDD047C545E93D83D63B5370EA53\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/PC/Documents/C++Education/HillelC-/Pro2 -BC:/Users/PC/Documents/C++Education/HillelC-/Pro2/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/PC/Documents/C++Education/HillelC-/Pro2/build/Pro2.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\PC\Documents\C++Education\HillelC-\Pro2\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\PC\Documents\C++Education\HillelC-\Pro2\SafeQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\PC\Documents\C++Education\HillelC-\Pro2\Worker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\PC\Documents\C++Education\HillelC-\Pro2\SleepManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\PC\Documents\C++Education\HillelC-\Pro2\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6A2CE8EE-28E3-386B-B725-F9D1FEEF47EE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
