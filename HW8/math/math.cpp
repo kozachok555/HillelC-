@@ -1,16 +1,16 @@
 #include "math.hpp"
 
 extern "C" {
-	int add(int a, int b) {
+	double add(double a, double b) {
 		return a + b;
 	}
-	int sub(int a, int b) {
+	double sub(double a, double b) {
 		return a - b;
 	}
-	int mul(int a, int b) {
+	double mul(double a, double b) {
 		return a * b;
 	}
-	int mydiv(int a, int b) {
+	double mydiv(double a, double b) {
 		if (b == 0) return 0;
 		return a / b;
 	}
